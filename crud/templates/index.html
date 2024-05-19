@@ -1,0 +1,48 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        th,td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    {%load static %}
+    <img src="{% static 'crud/teddy_bear.jpg' %}" alt="My image">
+    <h1>This is students list page</h1>
+{%if students %}
+    <table style='border: 1px solid black'>
+        <tr>
+            <th>Student ID</th>
+            <th>Student Name</th>
+            <th>Student roll_no</th>
+            <th>student department</th>
+            <th>semester</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+        {%for student in students%}
+        <tr>
+            <td>{{student.id}}</td>
+            <td>{{student.name}}</td>
+            <td>{{student.roll}}</td>
+            <td>{{student.department}}</td>
+            <td>{{student.semester}}</td>
+            <td><a href='{% url 'update' student.id %}'>Update</a></td>
+            <td><a href='{%url 'delete_stud' student.id %}'>Delete</a></td>
+        </tr>
+        {%endfor%}
+    </table>
+
+{%else%}
+ <p>student does not exist</p>
+ {%endif%}
+</body>
+</html>
