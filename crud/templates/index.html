@@ -14,8 +14,7 @@
     </style>
 </head>
 <body>
-    {%load static %}
-    <img src="{% static 'crud/teddy_bear.jpg' %}" alt="My image">
+
     <h1>This is students list page</h1>
 {%if students %}
     <table style='border: 1px solid black'>
@@ -44,5 +43,8 @@
 {%else%}
  <p>student does not exist</p>
  {%endif%}
+ <a href='{% url 'add_student' %}'>Add New Students</a>
+
+
 </body>
 </html>
